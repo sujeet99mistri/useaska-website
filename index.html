@@ -177,12 +177,15 @@ form{
     gap:15px;
 }
 
-input,textarea{
+input,
+textarea,
+select{
     padding:14px;
     border:none;
     border-radius:10px;
     background:#1f2937;
     color:white;
+    font-size:16px;
 }
 
 textarea{
@@ -261,8 +264,8 @@ and purchase across multiple vendors through one conversation.
 
 <div class="buttons">
 
-<a href="#contact" class="btn primary">
-Contact Us
+<a href="#beta" class="btn primary">
+🚀 Request Beta Access
 </a>
 
 <a href="#" class="btn primary" style="margin-left:10px;">
@@ -289,6 +292,93 @@ Download on App Store
 </div>
 
 </section>
+
+<section class="section" id="beta">
+
+<h2>🚀 Request Beta Access</h2>
+
+<div class="about">
+
+<p style="margin-bottom:30px;">
+ASKA is currently in private beta.
+
+Leave your details below and we'll invite you as soon as new beta slots become available.
+</p>
+
+<form
+action="https://formsubmit.co/support@useaska.com"
+method="POST">
+
+<input
+type="text"
+name="Name"
+placeholder="Your Name"
+required>
+
+<input
+type="email"
+name="Email"
+placeholder="Your Email"
+required>
+
+<input
+type="tel"
+name="Phone"
+placeholder="Mobile Number (Optional)">
+
+<select
+name="Platform"
+required>
+
+<option value="">
+Select Your Device
+</option>
+
+<option>
+Android
+</option>
+
+<option>
+iPhone
+</option>
+
+</select>
+
+<input
+type="text"
+name="City"
+placeholder="City (Optional)">
+
+<input
+type="hidden"
+name="_subject"
+value="New ASKA Beta Request">
+
+<input
+type="hidden"
+name="_captcha"
+value="false">
+
+<input
+type="hidden"
+name="_template"
+value="table">
+
+<button type="submit">
+🚀 Request Beta Access
+</button>
+
+</form>
+
+</div>
+
+</section>
+
+<!-- Existing Supported Vendors Section -->
+
+<section class="section">
+
+<h2>Supported Vendors</h2>
 
 <section class="section">
 
