@@ -472,10 +472,6 @@ type="hidden"
 name="_captcha"
 value="false">
 
-<input
-type="hidden"
-name="_next"
-value="https://useaska.com/thanks.html">
 
 <input
 type="hidden"
@@ -485,6 +481,16 @@ value="table">
 <button type="submit">
 🚀 Request Beta Access
 </button>
+
+<p
+id="betaFormMessage"
+style="
+display:none;
+margin-top:15px;
+text-align:center;
+font-weight:600;
+">
+</p>
 
 </form>
 
@@ -794,6 +800,66 @@ modal.style.display="none";
 }
 
 }
+
+const betaForm = document.getElementById("betaForm");
+const betaFormMessage = document.getElementById("betaFormMessage");
+
+betaForm.addEventListener("submit", async function(event) {
+
+    event.preventDefault();
+
+    const submitButton = betaForm.querySelector('button[type="submit"]');
+
+    submitButton.disabled = true;
+    submitButton.textContent = "Submitting...";
+
+    betaFormMessage.style.display = "none";
+
+    const formData = new FormData(betaForm);
+
+    try {
+
+        const response = await fetch(
+            "https://formsubmit.co/ajax/support@useaska.com",
+            {
+                method: "POST",
+                headers: {
+                    "Accept": "application/json"
+                },
+                body: formData
+            }
+        );
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(data.message || "Unable to submit beta request");
+        }
+
+        betaFormMessage.style.display = "block";
+        betaFormMessage.style.color = "#86efac";
+        betaFormMessage.textContent =
+            "🚀 Thank you! Your beta access request has been submitted successfully.";
+
+        betaForm.reset();
+
+    } catch (error) {
+
+        console.error("Beta form submission failed:", error);
+
+        betaFormMessage.style.display = "block";
+        betaFormMessage.style.color = "#fca5a5";
+        betaFormMessage.textContent =
+            "Unable to submit your request right now. Please try again.";
+
+    } finally {
+
+        submitButton.disabled = false;
+        submitButton.textContent = "🚀 Request Beta Access";
+
+    }
+
+});
 
 </script>
 
