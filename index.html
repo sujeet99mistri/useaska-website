@@ -108,9 +108,6 @@ nav a{
 
 .buttons{
     margin-top:40px;
-    display:flex;
-    justify-content:center;
-    gap:14px;
 }
 
 .btn{
@@ -314,18 +311,6 @@ nav ul{
     display:none;
 }
 
-.buttons{
-    flex-direction:column;
-    align-items:center;
-    gap:16px;
-}
-
-.buttons .btn{
-    margin-left:0 !important;
-    width:100%;
-    max-width:320px;
-}
-
 }
 
 </style>
@@ -415,29 +400,28 @@ Leave your details below and we'll invite you as soon as new beta slots become a
 </p>
 
 <form
-id="betaForm"
 action="https://formsubmit.co/support@useaska.com"
 method="POST">
 
 <input
 type="text"
-name="name"
+name="Name"
 placeholder="Your Name"
 required>
 
 <input
 type="email"
-name="email"
+name="Email"
 placeholder="Your Email"
 required>
 
 <input
 type="tel"
-name="phone"
+name="Phone"
 placeholder="Mobile Number (Optional)">
 
 <select
-name="platform"
+name="Platform"
 required>
 
 <option value="">
@@ -456,7 +440,7 @@ iPhone
 
 <input
 type="text"
-name="city"
+name="City"
 placeholder="City (Optional)">
 
 <input
@@ -466,9 +450,13 @@ value="New ASKA Beta Request">
 
 <input
 type="hidden"
-name="_url"
-value="https://useaska.com/#beta">
+name="_captcha"
+value="false">
 
+<input
+type="hidden"
+name="_next"
+value="https://useaska.com/thanks.html">
 
 <input
 type="hidden"
@@ -478,16 +466,6 @@ value="table">
 <button type="submit">
 🚀 Request Beta Access
 </button>
-
-<p
-id="betaFormMessage"
-style="
-display:none;
-margin-top:15px;
-text-align:center;
-font-weight:600;
-">
-</p>
 
 </form>
 
@@ -655,7 +633,6 @@ Privacy Policy
 <br>
 
 <form
-id="feedbackForm"
 action="https://formsubmit.co/support@useaska.com"
 method="POST">
 
@@ -678,27 +655,12 @@ required></textarea>
 
 <input
 type="hidden"
-name="_subject"
-value="New ASKA Feedback">
-
-<input
-type="hidden"
-name="_template"
-value="table">
+name="_captcha"
+value="false">
 
 <button type="submit">
 Send Feedback
 </button>
-
-<p
-id="feedbackFormMessage"
-style="
-display:none;
-margin-top:15px;
-text-align:center;
-font-weight:600;
-">
-</p>
 
 </form>
 
@@ -788,32 +750,31 @@ Close
 
 <script>
 
-function appStoreComingSoon(event) {
+function appStoreComingSoon(event){
 
-    event.preventDefault();
+event.preventDefault();
 
-    document.getElementById("comingSoonModal").style.display = "flex";
-
-}
-
-function closeModal() {
-
-    document.getElementById("comingSoonModal").style.display = "none";
+document.getElementById("comingSoonModal").style.display="flex";
 
 }
 
-window.onclick = function(event) {
+function closeModal(){
 
-    const modal =
-        document.getElementById("comingSoonModal");
+document.getElementById("comingSoonModal").style.display="none";
 
-    if (event.target === modal) {
+}
 
-        modal.style.display = "none";
+window.onclick=function(event){
 
-    }
+const modal=document.getElementById("comingSoonModal");
 
-};
+if(event.target===modal){
+
+modal.style.display="none";
+
+}
+
+}
 
 </script>
 
