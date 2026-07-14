@@ -333,12 +333,6 @@ nav ul{
 
 <body>
 
-<iframe
-name="formSubmitFrame"
-id="formSubmitFrame"
-style="display:none;">
-</iframe>
-
 <header>
 <nav>
 
@@ -423,8 +417,7 @@ Leave your details below and we'll invite you as soon as new beta slots become a
 <form
 id="betaForm"
 action="https://formsubmit.co/support@useaska.com"
-method="POST"
-target="formSubmitFrame">
+method="POST">
 
 <input
 type="text"
@@ -470,11 +463,6 @@ placeholder="City (Optional)">
 type="hidden"
 name="_subject"
 value="New ASKA Beta Request">
-
-<input
-type="hidden"
-name="_captcha"
-value="false">
 
 <input
 type="hidden"
@@ -669,8 +657,7 @@ Privacy Policy
 <form
 id="feedbackForm"
 action="https://formsubmit.co/support@useaska.com"
-method="POST"
-target="formSubmitFrame">
+method="POST">
 
 <input
 type="text"
@@ -693,11 +680,6 @@ required></textarea>
 type="hidden"
 name="_subject"
 value="New ASKA Feedback">
-
-<input
-type="hidden"
-name="_captcha"
-value="false">
 
 <input
 type="hidden"
@@ -822,7 +804,8 @@ function closeModal() {
 
 window.onclick = function(event) {
 
-    const modal = document.getElementById("comingSoonModal");
+    const modal =
+        document.getElementById("comingSoonModal");
 
     if (event.target === modal) {
 
@@ -831,112 +814,6 @@ window.onclick = function(event) {
     }
 
 };
-
-
-/* ================================
-   BETA ACCESS FORM
-================================ */
-
-const betaForm =
-    document.getElementById("betaForm");
-
-const betaFormMessage =
-    document.getElementById("betaFormMessage");
-
-betaForm.addEventListener(
-    "submit",
-    function() {
-
-        const submitButton =
-            betaForm.querySelector(
-                'button[type="submit"]'
-            );
-
-        submitButton.disabled = true;
-
-        submitButton.textContent =
-            "Submitting...";
-
-        betaFormMessage.style.display =
-            "none";
-
-        setTimeout(function() {
-
-            betaFormMessage.style.display =
-                "block";
-
-            betaFormMessage.style.color =
-                "#86efac";
-
-            betaFormMessage.textContent =
-                "🚀 Thank you! Your beta access request has been submitted successfully.";
-
-            betaForm.reset();
-
-            submitButton.disabled = false;
-
-            submitButton.textContent =
-                "🚀 Request Beta Access";
-
-        }, 1500);
-
-    }
-);
-
-
-/* ================================
-   FEEDBACK FORM
-================================ */
-
-const feedbackForm =
-    document.getElementById("feedbackForm");
-
-const feedbackFormMessage =
-    document.getElementById(
-        "feedbackFormMessage"
-    );
-
-feedbackForm.addEventListener(
-    "submit",
-    function() {
-
-        const submitButton =
-            feedbackForm.querySelector(
-                'button[type="submit"]'
-            );
-
-        submitButton.disabled = true;
-
-        submitButton.textContent =
-            "Sending...";
-
-        feedbackFormMessage.style.display =
-            "none";
-
-        setTimeout(function() {
-
-            feedbackFormMessage.style.display =
-                "block";
-
-            feedbackFormMessage.style.color =
-                "#86efac";
-
-            feedbackFormMessage.textContent =
-                "✅ Thank you! Your feedback has been sent successfully.";
-
-            feedbackForm.reset();
-
-            submitButton.disabled = false;
-
-            submitButton.textContent =
-                "Send Feedback";
-
-        }, 1500);
-
-    }
-);
-
-</script>
 
 </script>
 
